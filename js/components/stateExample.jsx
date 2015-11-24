@@ -4,7 +4,8 @@ var StateExample = React.createClass({
   getInitialState: function () {
     return {
       txt: this.props.food[0],
-      img: this.props.food[0]
+      img: this.props.food[0],
+      backgroundColor: 'yellow'
     };
   },
   getDefaultProps: function () {
@@ -16,7 +17,16 @@ var StateExample = React.createClass({
     }
   },
   componentWillMount: function () {
-    console.log('componentWillMount');
+    this.setState({
+      txt: this.props.food[1],
+      img: this.props.food[1]
+    })
+  },
+  componentDidMount: function () {
+    this.setState({
+      txt: this.props.food[0],
+      img: this.props.food[0]
+    })
   },
   _handleChange : function (e) {
     var foodArr = this.props.food;
@@ -37,11 +47,18 @@ var StateExample = React.createClass({
       img: 'hamburger'
     })
   },
+  _changeBackground: function (e) {
+    e.preventDefault();
+    this.setState({
+      backgroundColor: 'blue'
+    })
+  },
 
   render: function () {
     console.log("render");
     return (
-      <div>
+      <div style={{background: this.state.backgroundColor}}>
+        <a href="http://www.google.com" onClick={this._changeBackground}>Go to Google</a>
         <input type="text" onChange={this._handleChange} value={this.state.txt} /><br />
         <img onClick={this._handleImgClick} src={"/images/" + this.state.img + ".jpeg"} />
       </div>

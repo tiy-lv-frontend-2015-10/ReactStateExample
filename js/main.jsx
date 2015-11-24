@@ -11,4 +11,4 @@ var food = [
   'sushi'
 ]
 
-ReactDOM.render(<StateExample food={food} />, document.getElementById('container'));
+ReactDOM.render(<StateExample food={food}/>, document.getElementById('container'));
