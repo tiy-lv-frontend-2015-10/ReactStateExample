@@ -6,15 +6,9 @@ var AnotherComponent = React.createClass({
       backgroundColor: 'pink'
     }
   },
-  getInitialState: function () {
-    return {
-      backgroundColor: this.props.backgroundColor
-    }
-  },
   render: function () {
-    console.log(this.state);
     return (
-      <div className="square" style={{background: this.state.backgroundColor}}></div>
+      <div className="square" style={{background: this.props.backgroundColor}}></div>
     );
   }
 });
