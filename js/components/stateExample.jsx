@@ -53,14 +53,16 @@ var StateExample = React.createClass({
       backgroundColor: 'blue'
     })
   },
-
+  _handleButtonClick: function (e) {
+    this.props.bgcb('purple');
+  },
   render: function () {
-    console.log("render");
     return (
       <div style={{background: this.state.backgroundColor}}>
         <a href="http://www.google.com" onClick={this._changeBackground}>Go to Google</a>
         <input type="text" onChange={this._handleChange} value={this.state.txt} /><br />
         <img onClick={this._handleImgClick} src={"/images/" + this.state.img + ".jpeg"} />
+        <button onClick={this._handleButtonClick}>Change Background</button>
       </div>
     )
   }
